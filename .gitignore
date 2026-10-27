@@ -1,0 +1,12 @@
+build/
+artifacts/*.apk
+artifacts/*.apk.sha256
+artifacts/screens/
+tests/lib/*.jar
+*.jks
+*.keystore
+*.p8
+update-private*.pem
+.env
+node_modules/
+__pycache__/

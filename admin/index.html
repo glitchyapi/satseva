@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SatSeva · Release Console</title>
+<link rel="icon" href="../logo.png">
+<style>
+:root{--bg:#F7F4EE;--paper:#fff;--ink:#1C1B18;--muted:#8C877C;--faint:#B4AEA2;--line:#EAE5DB;--saffron:#D9762A;--saffron-ink:#A9531A;--saffron-soft:#FBEEDC;--sage:#6E7F63;--sage-soft:#EDF1E7;--charcoal:#232220;--red:#B4553C;--r:18px;--font:ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 var(--font)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+button:disabled{opacity:.5;cursor:default}
+a{color:var(--saffron-ink)}
+.wrap{max-width:1080px;margin:0 auto;padding:26px 20px 80px}
+header.top{display:flex;align-items:center;gap:14px;margin-bottom:26px;flex-wrap:wrap}
+header.top img{width:44px;height:44px}
+header.top h1{margin:0;font-size:22px;font-weight:800;letter-spacing:-.6px}
+header.top p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+.spacer{flex:1}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:20px;margin-bottom:16px;box-shadow:0 1px 2px rgba(28,27,24,.04)}
+.card h2{margin:0 0 4px;font-size:16px;font-weight:800;letter-spacing:-.3px}
+.card .sub{margin:0 0 16px;font-size:12px;color:var(--muted);line-height:1.7}
+label.f{display:block;margin:12px 0}
+label.f>span{display:block;font-size:11px;font-weight:700;margin-bottom:6px;color:#4A4740}
+input[type=text],input[type=password],input[type=number],input[type=date],input[type=time],select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;font-size:13px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--saffron);box-shadow:0 0 0 3px rgba(217,118,42,.12)}
+textarea{min-height:90px;resize:vertical;line-height:1.65;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--charcoal);color:#fff;border-radius:999px;padding:11px 18px;font-size:13px;font-weight:700}
+.btn.saffron{background:var(--saffron)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.small{padding:7px 13px;font-size:11.5px}
+.btn.red{background:var(--red)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:720px){.grid2,.grid3{grid-template-columns:1fr}}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:18px;padding-bottom:2px}
+.tab{border-radius:999px;padding:9px 16px;font-size:12.5px;font-weight:700;background:#fff;border:1px solid var(--line);white-space:nowrap}
+.tab.active{background:var(--charcoal);color:#fff;border-color:var(--charcoal)}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 11px;font-size:11px;font-weight:700;background:var(--sage-soft);color:#55654B}
+.pill.warn{background:var(--saffron-soft);color:var(--saffron-ink)}
+.pill.bad{background:#F9EBE5;color:var(--red)}
+.note{border-radius:14px;padding:13px 15px;font-size:12px;line-height:1.75;background:var(--saffron-soft);color:var(--saffron-ink);margin:12px 0}
+.note.calm{background:var(--sage-soft);color:#55654B}
+.note.bad{background:#F9EBE5;color:var(--red)}
+.log{background:#232220;color:#E8E2D6;border-radius:14px;padding:14px;font:11.5px/1.75 ui-monospace,Menlo,monospace;max-height:320px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line)}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--faint)}
+td.mono{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--muted)}
+.event{border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;background:#FBF9F5}
+.event .row{justify-content:space-between}
+.hidden{display:none!important}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:12.5px}
+.kv:last-child{border:0}
+.kv span{color:var(--muted)}
+.kv b{font-weight:700;font-family:ui-monospace,Menlo,monospace;font-size:11.5px;text-align:right;word-break:break-all}
+footer{margin-top:26px;font-size:11px;color:var(--faint);text-align:center;line-height:1.9}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <img src="../logo.png" alt="">
+    <div>
+      <h1>SatSeva Release Console</h1>
+      <p>Sign and publish interface updates, announcements and Android builds.</p>
+    </div>
+    <div class="spacer"></div>
+    <span id="conn-state" class="pill warn">Not connected</span>
+    <button id="signout" class="btn ghost small hidden">Disconnect</button>
+  </header>
+
+  <div id="connect" class="card">
+    <h2>Connect</h2>
+    <p class="sub">The console runs entirely in your browser and talks to GitHub directly. Your token and signing key never leave this device and are never committed to the repository.</p>
+    <div class="grid2">
+      <label class="f"><span>Repository</span><input id="repo" type="text" value="glitchyapi/satseva" spellcheck="false"></label>
+      <label class="f"><span>Branch</span><input id="branch" type="text" value="main" spellcheck="false"></label>
+    </div>
+    <label class="f"><span>GitHub token (fine-grained: this repo only, Contents + Actions read/write)</span>
+      <input id="token" type="password" placeholder="github_pat_…" autocomplete="off" spellcheck="false"></label>
+    <div class="note">Create it at GitHub → Settings → Developer settings → Fine-grained tokens. Scope it to this one repository. A classic token with <code>repo</code> also works but is far broader than needed.</div>
+    <div class="row">
+      <button id="do-connect" class="btn saffron">Connect</button>
+      <label class="row" style="gap:6px;font-size:12px"><input id="remember" type="checkbox"> Remember for this tab</label>
+    </div>
+    <div id="connect-err" class="note bad hidden"></div>
+  </div>
+
+  <div id="app" class="hidden">
+    <div class="tabs">
+      <button class="tab active" data-tab="release">Interface release</button>
+      <button class="tab" data-tab="events">Bhandara notices</button>
+      <button class="tab" data-tab="android">Android build</button>
+      <button class="tab" data-tab="push">Push alert</button>
+      <button class="tab" data-tab="files">Edit files</button>
+      <button class="tab" data-tab="keys">Signing key</button>
+    </div>
+
+    <!-- RELEASE -->
+    <section data-panel="release">
+      <div class="card">
+        <h2>Current feed</h2>
+        <p class="sub">Read from the public universal URL. This is exactly what every installed app reads.</p>
+        <div id="feed-state"><p class="sub">Loading…</p></div>
+        <div class="row" style="margin-top:12px"><button id="reload-feed" class="btn ghost small">Reload feed</button></div>
+      </div>
+      <div class="card">
+        <h2>Publish an interface update</h2>
+        <p class="sub">Every file under <code>web/</code> is hashed. Devices download only the files whose hash changed, verify the signature, then swap atomically. Journals are never touched.</p>
+        <div class="grid3">
+          <label class="f"><span>Interface release number</span><input id="ui-version" type="number" min="1" value="2"></label>
+          <label class="f"><span>Require at least this interface release</span><input id="ui-min" type="number" min="0" value="0"></label>
+          <label class="f"><span>Needs app version code ≥</span><input id="ui-min-app" type="number" min="1" value="1"></label>
+        </div>
+        <div class="grid3">
+          <label class="f"><span>What's new — English</span><textarea id="notes-en" placeholder="One line per bullet"></textarea></label>
+          <label class="f"><span>What's new — हिन्दी</span><textarea id="notes-hi" placeholder="हर पंक्ति एक बिंदु"></textarea></label>
+          <label class="f"><span>What's new — ਪੰਜਾਬੀ</span><textarea id="notes-pa" placeholder="ਹਰ ਲਾਈਨ ਇੱਕ ਨੁਕਤਾ"></textarea></label>
+        </div>
+        <div class="note">Setting “Require at least this interface release” above a device's version shows the blocking <b>Update required</b> screen until it updates. Use it only for changes devices genuinely must take.</div>
+        <div class="row">
+          <button id="publish-ui" class="btn saffron">Sign &amp; publish interface</button>
+          <span id="release-state" class="pill hidden"></span>
+        </div>
+      </div>
+      <div class="card"><h2>Activity</h2><div id="log" class="log">Ready.</div></div>
+    </section>
+
+    <!-- EVENTS -->
+    <section data-panel="events" class="hidden">
+      <div class="card">
+        <h2>Bhandara announcements</h2>
+        <p class="sub">Only publish dates you have confirmed. Announcements travel inside the signed feed and appear on the Bhandara screen. The app never invents an event date.</p>
+        <div id="events"></div>
+        <button id="add-event" class="btn ghost small">+ Add announcement</button>
+        <div class="row" style="margin-top:16px">
+          <button id="save-events" class="btn saffron">Save announcements</button>
+          <span class="sub" style="margin:0">Then publish an interface release to deliver them.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANDROID -->
+    <section data-panel="android" class="hidden">
+      <div class="card">
+        <h2>Build a new APK</h2>
+        <p class="sub">Android code, permissions, the icon and the splash cannot be delivered over the air — they need a new APK. This dispatches the repository's build workflow, which compiles with the official SDK tools, signs with the release keystore held in repository secrets, and attaches the APK to a GitHub release.</p>
+        <div class="grid3">
+          <label class="f"><span>Version name</span><input id="apk-name" type="text" value="1.0.1"></label>
+          <label class="f"><span>Version code (must increase)</span><input id="apk-code" type="number" min="1" value="2"></label>
+          <label class="f"><span>Force older apps to update (min code)</span><input id="apk-min" type="number" min="1" value="1"></label>
+        </div>
+        <div class="row">
+          <button id="build-apk" class="btn saffron">Dispatch Android build</button>
+          <a id="actions-link" class="btn ghost" target="_blank" rel="noopener">Open Actions</a>
+        </div>
+        <div class="note">A dispatched workflow is not a published release. Wait for the run to finish, then confirm the APK appears below before telling anyone to update.</div>
+      </div>
+      <div class="card"><h2>Published releases</h2><div id="releases"><p class="sub">Loading…</p></div></div>
+    </section>
+
+    <!-- PUSH -->
+    <section data-panel="push" class="hidden">
+      <div class="card">
+        <h2>Send a push alert</h2>
+        <p class="sub">Alerts are delivered through a public <a href="https://ntfy.sh" target="_blank" rel="noopener">ntfy</a> topic — no Firebase project, no Google account, no user list. Apps listen while open and poll in the background roughly every 15 minutes, so delivery is best effort, not instant or guaranteed.</p>
+        <label class="f"><span>Topic (unguessable; treated as a shared secret)</span><input id="ntfy-topic" type="text" placeholder="satseva-…" spellcheck="false"></label>
+        <div class="row">
+          <button id="gen-topic" class="btn ghost small">Generate topic</button>
+          <button id="save-topic" class="btn ghost small">Save topic to config</button>
+        </div>
+        <div class="grid2" style="margin-top:8px">
+          <label class="f"><span>Title</span><input id="push-title" type="text" value="SatSeva"></label>
+          <label class="f"><span>Priority</span><select id="push-priority"><option value="3">Default</option><option value="4">High</option><option value="2">Low</option></select></label>
+        </div>
+        <label class="f"><span>Message</span><textarea id="push-body" placeholder="A new Bhandara has been announced…"></textarea></label>
+        <div class="row"><button id="send-push" class="btn saffron">Send alert</button></div>
+        <div class="note">Anyone who knows the topic can read it. Never put personal information, journal content or credentials in an alert.</div>
+      </div>
+    </section>
+
+    <!-- FILES -->
+    <section data-panel="files" class="hidden">
+      <div class="card">
+        <h2>Edit interface files</h2>
+        <p class="sub">Changes are committed to <code>web/</code>. They reach devices only after you sign and publish an interface release.</p>
+        <div class="row">
+          <select id="file-pick" style="max-width:340px"></select>
+          <button id="load-file" class="btn ghost small">Load</button>
+          <button id="commit-file" class="btn saffron small">Commit file</button>
+        </div>
+        <label class="f" style="margin-top:14px"><span id="file-label">No file loaded</span><textarea id="file-body" style="min-height:380px" spellcheck="false"></textarea></label>
+      </div>
+    </section>
+
+    <!-- KEYS -->
+    <section data-panel="keys" class="hidden">
+      <div class="card">
+        <h2>Release signing key</h2>
+        <p class="sub">The APK contains one P-256 public key. A release is accepted only if it is signed by the matching private key. Import that private key here to sign releases from this browser.</p>
+        <div id="key-state" class="note">No signing key loaded.</div>
+        <label class="f"><span>Private key (PKCS#8 PEM, <code>update-private.pem</code>)</span><textarea id="key-pem" placeholder="-----BEGIN PRIVATE KEY-----"></textarea></label>
+        <div class="row">
+          <button id="import-key" class="btn saffron">Import key</button>
+          <label class="row" style="gap:6px;font-size:12px"><input id="key-remember" type="checkbox" checked> Keep in this browser</label>
+          <button id="forget-key" class="btn ghost small">Forget key</button>
+        </div>
+        <div class="note bad">The private key is imported as non-extractable and, if you keep it, stored in this browser's IndexedDB. Anyone with access to this browser profile could sign releases. Keep an offline backup of the PEM; losing it means installed apps can never accept another update.</div>
+      </div>
+      <div class="card">
+        <h2>Convert an EC key</h2>
+        <p class="sub">If your key begins with <code>BEGIN EC PRIVATE KEY</code>, convert it once:</p>
+        <div class="log">openssl pkcs8 -topk8 -nocrypt -in update-private.pem -out update-private-pkcs8.pem</div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    SatSeva · independent community project<br>
+    This console holds no server and stores nothing about any user.
+  </footer>
+</div>
+
+<script src="console.js"></script>
+</body>
+</html>

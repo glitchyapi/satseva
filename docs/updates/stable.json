@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "channel": "stable",
+  "published": 1793127534303,
+  "app": {
+    "versionName": "1.0.0",
+    "versionCode": 1,
+    "minVersionCode": 1
+  },
+  "ui": {
+    "version": 1,
+    "minAppVersionCode": 1,
+    "minVersion": 0,
+    "bases": [
+      "https://raw.githubusercontent.com/glitchyapi/satseva/main/docs/updates/ui/",
+      "https://cdn.jsdelivr.net/gh/glitchyapi/satseva@main/docs/updates/ui/",
+      "https://glitchyapi.github.io/satseva/updates/ui/"
+    ],
+    "files": [
+      {
+        "path": "app.css",
+        "sha256": "70a9b24409d23b84df763ceb24411ec0c19df46c133caa33c7038fa727b1fb46",
+        "bytes": 29161
+      },
+      {
+        "path": "app.js",
+        "sha256": "dc985fd939e6cb8f8be5e4a3f4072b6ef0796380ec47fa207ec685382d0e1324",
+        "bytes": 70873
+      },
+      {
+        "path": "assets/bhandara.webp",
+        "sha256": "2116232ea2f75937fddbfc9587075e50d88b445658c2211d326a45a67dd0be30",
+        "bytes": 58584
+      },
+      {
+        "path": "assets/devanagari.woff2",
+        "sha256": "d8dcc5323b6909364081200d7a3bdec85a668c3d8feda4e0e9516d8e4aa20eea",
+        "bytes": 230880
+      },
+      {
+        "path": "assets/hero-bhandara.webp",
+        "sha256": "4cfc76b9a14edf1029bfb3e71087c77f13536faa2d8ed2950c0474a56689ca48",
+        "bytes": 54764
+      },
+      {
+        "path": "assets/hero-diya.webp",
+        "sha256": "f6d8e72d6c9725895eba075445d77d28a8d775eda0e6967269bf31971cc06455",
+        "bytes": 33178
+      },
+      {
+        "path": "assets/logo.png",
+        "sha256": "ae29721b95e283600b1fec29611d280a46a1842b72f8056596af7e168392377d",
+        "bytes": 26790
+      },
+      {
+        "path": "assets/logo.svg",
+        "sha256": "abddb8ea1c73d00f8f7e4d83b7110893c0419580a21a45ae7469d8394970aa06",
+        "bytes": 1734
+      },
+      {
+        "path": "assets/manrope.woff2",
+        "sha256": "93e718825304afd2055a52b04f7077ae916c3ea700ef551352bb5cd596fb233c",
+        "bytes": 31388
+      },
+      {
+        "path": "i18n.js",
+        "sha256": "0dbacad1dc2cec861be09f200de1b063ec6eaf1e7b56474136334088ce32202e",
+        "bytes": 33230
+      },
+      {
+        "path": "index.html",
+        "sha256": "e19204a0ed207c82445961b49e84ec0a5d516aa3a47a2e1c3ca460f7eb3fc872",
+        "bytes": 2937
+      }
+    ],
+    "remove": []
+  },
+  "content": {
+    "events": [],
+    "notes": {
+      "en": [
+        "First release: encrypted seva diary, Bhandara banner studio, Hindi/English/Punjabi."
+      ],
+      "hi": [
+        "पहला संस्करण: एन्क्रिप्टेड सेवा डायरी, भंडारा बैनर स्टूडियो, हिन्दी/अंग्रेज़ी/पंजाबी।"
+      ],
+      "pa": [
+        "ਪਹਿਲਾ ਵਰਜਨ: ਏਨਕ੍ਰਿਪਟਿਡ ਸੇਵਾ ਡਾਇਰੀ, ਭੰਡਾਰਾ ਬੈਨਰ ਸਟੂਡੀਓ, ਹਿੰਦੀ/ਅੰਗਰੇਜ਼ੀ/ਪੰਜਾਬੀ।"
+      ]
+    }
+  },
+  "push": {
+    "ntfyHost": "https://ntfy.sh",
+    "ntfyTopic": ""
+  }
+}

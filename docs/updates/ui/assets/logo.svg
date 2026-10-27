@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192" role="img" aria-label="SatSeva mark">
+  <defs>
+    <linearGradient id="petal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFC46B"/>
+      <stop offset="1" stop-color="#E8873A"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF3DC"/>
+      <stop offset="0.55" stop-color="#FFB65C"/>
+      <stop offset="1" stop-color="#D9662A"/>
+    </linearGradient>
+  </defs>
+  <!-- lotus of eight petals: the sangat gathered around one light -->
+  <g transform="translate(96 104)">
+    <g fill="url(#petal)" opacity="0.30">
+      <ellipse cx="0" cy="-46" rx="15" ry="34" transform="rotate(-62)"/>
+      <ellipse cx="0" cy="-46" rx="15" ry="34" transform="rotate(62)"/>
+    </g>
+    <g fill="url(#petal)" opacity="0.55">
+      <ellipse cx="0" cy="-42" rx="16" ry="36" transform="rotate(-34)"/>
+      <ellipse cx="0" cy="-42" rx="16" ry="36" transform="rotate(34)"/>
+    </g>
+    <g fill="url(#petal)">
+      <ellipse cx="0" cy="-38" rx="17" ry="38"/>
+    </g>
+    <!-- the lamp bowl: seva held in open hands -->
+    <path d="M-52 6 C-40 34 -22 46 0 46 C22 46 40 34 52 6 C34 14 16 18 0 18 C-16 18 -34 14 -52 6 Z" fill="#2F2A24"/>
+    <path d="M-52 6 C-34 14 -16 18 0 18 C16 18 34 14 52 6 C40 2 22 0 0 0 C-22 0 -40 2 -52 6 Z" fill="#4A4137"/>
+    <!-- the single flame: sat naam -->
+    <path d="M0 -76 C14 -56 24 -46 24 -30 C24 -14 13 -3 0 -3 C-13 -3 -24 -14 -24 -30 C-24 -46 -14 -56 0 -76 Z" fill="url(#flame)"/>
+    <path d="M0 -52 C7 -40 11 -35 11 -27 C11 -19 6 -13 0 -13 C-6 -13 -11 -19 -11 -27 C-11 -35 -7 -40 0 -52 Z" fill="#FFF8EC" opacity="0.92"/>
+  </g>
+</svg>

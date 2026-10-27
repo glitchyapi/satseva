@@ -1,0 +1,23 @@
+{
+  "versionName": "1.0.0",
+  "versionCode": 1,
+  "uiVersion": 1,
+  "channel": "stable",
+  "repo": "glitchyapi/satseva",
+  "feedUrls": [
+    "https://raw.githubusercontent.com/glitchyapi/satseva/main/docs/updates/stable.json",
+    "https://cdn.jsdelivr.net/gh/glitchyapi/satseva@main/docs/updates/stable.json",
+    "https://glitchyapi.github.io/satseva/updates/stable.json"
+  ],
+  "uiBases": [
+    "https://raw.githubusercontent.com/glitchyapi/satseva/main/docs/updates/ui/",
+    "https://cdn.jsdelivr.net/gh/glitchyapi/satseva@main/docs/updates/ui/",
+    "https://glitchyapi.github.io/satseva/updates/ui/"
+  ],
+  "push": {
+    "ntfyHost": "https://ntfy.sh",
+    "ntfyTopic": ""
+  },
+  "minVersionCode": 1,
+  "uiMinVersion": 0
+}

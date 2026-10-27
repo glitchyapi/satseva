@@ -1,0 +1,11 @@
+{
+  "package": "org.satseva.app",
+  "versionCode": 1,
+  "versionName": "1.0.0",
+  "uiVersion": 1,
+  "minSdk": 26,
+  "targetSdk": 34,
+  "bytes": 630558,
+  "sha256": "57babd3bbd08878e640c60630506e0ecb405dc6ab1dcb9347c2748a1c549cf1f",
+  "apk": "SatSeva-1.0.0.apk"
+}
